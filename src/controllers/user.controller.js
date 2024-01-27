@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
-const userService = require('../services/user.service')
+const userService = require('../services/user.service');
 const { generateToken } = require('../utils/generateToken');
-const http = require('http');
+
 const createUser = async (req, res) => {
 
     const user = await userService.createUser(req.body);
