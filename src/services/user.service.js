@@ -20,8 +20,7 @@ const getUserByEmail = async (email) => {
 }
 
 const isUserPasswordMatch = (password, user) => {
-
-    return comparePassword(password, user.password)
+    return comparePassword(password, user.password);
 }
 
 module.exports = {
