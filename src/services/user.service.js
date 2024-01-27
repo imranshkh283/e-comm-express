@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
-const bcryptPassword = require('../utils/hashPasword');
+const { bcryptPassword, comparePassword } = require('../utils/hashPasword');
 const { generateToken } = require('../utils/generateToken');
 
 const createUser = async (userBody) => {
@@ -14,7 +14,18 @@ const createUser = async (userBody) => {
     return { token, user: user.toJSON() };
 }
 
+const getUserByEmail = async (email) => {
+
+    return await User.findOne({ email });
+}
+
+const isUserPasswordMatch = (password, user) => {
+
+    return comparePassword(password, user.password)
+}
 
 module.exports = {
-    createUser
+    createUser,
+    getUserByEmail,
+    isUserPasswordMatch,
 };
