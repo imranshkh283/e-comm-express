@@ -1,12 +1,12 @@
 const httpStatus = require('http-status');
-const { authService } = require('../services');
+const { authService, userService } = require('../services');
 const { generateToken } = require('../utils/generateToken');
 
 const signUp = async (req, res) => {
 
     const user = await userService.createUser(req.body);
-
-    res.status(httpStatus.CREATED).send({ user });
+    const token = await generateToken(user.toJSON());
+    res.status(httpStatus.CREATED).send({ user, token });
 }
 
 const login = async (req, res) => {
