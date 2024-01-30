@@ -9,7 +9,7 @@ const loginUserWithEmailAndPassword = async (username, password) => {
     if (!user || !(await isUserPasswordMatch(password, user))) {
         throw new Error('User not found');
     }
-    console.log(user);
+    return user;
 }
 
 module.exports = {

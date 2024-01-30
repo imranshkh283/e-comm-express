@@ -1,14 +1,11 @@
 const httpStatus = require('http-status');
 const userService = require('../services/user.service');
-const { generateToken } = require('../utils/generateToken');
 
-const createUser = async (req, res) => {
+const getUser = async (req, res) => {
 
-    const user = await userService.createUser(req.body);
-
-    res.status(httpStatus.CREATED).send({ user });
+    res.send('get all users');
 };
 
 module.exports = {
-    createUser
+    getUser
 }
