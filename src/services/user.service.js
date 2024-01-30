@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
 const { bcryptPassword, comparePassword } = require('../utils/hashPasword');
+const pick = require('../utils/pick');
 
 const createUser = async (userBody) => {
     const { password, ...userBodyWithoutPassword } = userBody;
@@ -9,7 +10,6 @@ const createUser = async (userBody) => {
     }
     const hashPassword = await bcryptPassword(password);
     const user = await User.create({ ...userBodyWithoutPassword, password: hashPassword });
-    console.log(user);
     return user;
 }
 
