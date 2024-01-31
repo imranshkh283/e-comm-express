@@ -2,7 +2,7 @@ const httpStatus = require('http-status');
 const { authService, userService } = require('../services');
 const { generateToken } = require('../utils/generateToken');
 
-const signUp = async (req, res) => {
+const signup = async (req, res) => {
 
     const user = await userService.createUser(req.body);
     const token = await generateToken(user.toJSON());
@@ -20,6 +20,6 @@ const login = async (req, res) => {
 }
 
 module.exports = {
-    signUp,
+    signup,
     login
 }

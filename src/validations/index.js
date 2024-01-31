@@ -1,5 +1,2 @@
-const signUpValidation = require("./signup.validator");
-
-module.exports = {
-    signUpValidation
-}
+module.exports.signupValidation = require('./signup.validator');
+module.exports.signinValidation = require('./signin.validator');
