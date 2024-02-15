@@ -13,7 +13,7 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await authService.loginUserWithEmailAndPassword(email, password);
-    const token = await tokenService.generateToken(user);
+    const token = await tokenService.generateAuthTokens(user);
 
     res.send({ user, token });
 }
