@@ -1,6 +1,7 @@
 const express = require('express');
 const userRoute = require('./user.route');
 const authRoute = require('./auth.route');
+const excelRoute = require('./excel.route');
 const router = express.Router();
 
 const defaultRoutes = [
@@ -11,6 +12,10 @@ const defaultRoutes = [
     {
         path: '/auth',
         route: authRoute,
+    },
+    {
+        path: '/excel',
+        route: excelRoute,
     }
 ];
 
